@@ -1,0 +1,11 @@
+[
+  {
+    "img": "../assets/img/product-image.png",
+    "name": "John Doe",
+    "email": "mail@address.dm",
+    "address": "Buddha Mandir er Passeh Life Drop er Office er goli diya dhukiya ekta call koiro",
+    "gender": "Male",
+    "phone": "+91 8798 453 452",
+    "pin": "799001"
+  }
+]

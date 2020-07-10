@@ -1,0 +1,156 @@
+.branding {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+.brand-name {
+  font-weight: 700;
+  font-family: "Poppins";
+}
+
+.banner-section {
+  width: 100%;
+  overflow: hidden;
+}
+
+.delivery-info .card i {
+  font-size: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.circle {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: #e6f0ff;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.bg-light {
+  background-color: #f8f8f8 !important;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+}
+
+.offer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 5px;
+}
+
+@media (min-width: 450px) {
+  main {
+    display: none;
+  }
+}
+
+.bottom-nav a i {
+  font-size: 18px;
+}
+
+.nsbdkajhrilhr {
+  height: 700px;
+}
+
+.noview {
+  display: none;
+}
+
+@media (min-width: 451px) {
+  .noview {
+    display: block;
+  }
+}
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: none;
+  outline: 0;
+  box-shadow: none;
+}
+
+.nav {
+  box-shadow: 4px 0 15px #1b1b1b18;
+}
+
+.card-header {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.radius-0 {
+  border-radius: 0;
+}
+
+.nav-tabs .nav-link {
+  border: none;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.shown {
+  display: block !important;
+}
+
+.diss {
+  filter: grayscale(1);
+  opacity: 0.7;
+}
+.empty-cart {
+  height: 90vh;
+}
+.vh90 {
+  height: 90vh;
+}
+.clickable:active {
+  transform: translateY(3px);
+}
+.bbnnaa {
+  height: 170px;
+  object-fit: cover;
+}
+@media (max-width: 300px) {
+  .noview {
+    display: block;
+  }
+  main {
+    display: none;
+  }
+}
+.navNone {
+  display: none !important;
+}
+.catIMG {
+  height: 80px;
+  width: 100%;
+  object-fit: contain;
+}
+.clickable .card-body p {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+#profile_img {
+  height: 100px;
+  width: 100px !important;
+  object-fit: cover;
+}
+.orHis{
+  height: 80px;
+  width: 80px !important;
+  object-fit: cover;
+}

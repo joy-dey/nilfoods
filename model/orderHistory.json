@@ -1,0 +1,26 @@
+[
+  {
+    "p_img": "../assets/img/Frame 7.png",
+    "p_name": "Vegetables",
+    "p_desc": "This is just a product",
+    "p_price": "₹ 230.98"
+  },
+  {
+    "p_img": "../assets/img/Frame 8.png",
+    "p_name": "Fruits",
+    "p_desc": "This is just a product",
+    "p_price": "₹ 560.98"
+  },
+  {
+    "p_img": "../assets/img/Frame 9.png",
+    "p_name": "Cold Drinks",
+    "p_desc": "This is just a product",
+    "p_price": "₹ 30.00"
+  },
+  {
+    "p_img": "../assets/img/Frame 11.png",
+    "p_name": "Laundry",
+    "p_desc": "This is just a product",
+    "p_price": "₹ 120.98"
+  }
+]

@@ -1,0 +1,116 @@
+<div class="bg-white">
+  <div class="container py-3 shadow-sm">
+    <div class="row">
+      <div class="col-2">
+        <a class="text-dark" onclick="goBack()"
+          ><i class="fas fa-arrow-left"></i
+        ></a>
+      </div>
+      <div class="col-10 pl-0">
+        <p class="mb-0 font-weight-bold text-secondary">My Cart</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="mainCart" class="hidden">
+  <section>
+    <div class="container mt-3">
+      <div class="alert alert-warning border-warning" role="alert">
+        <div class="mb-3">
+          <span class="small"
+            ><i class="fas fa-home mr-2"></i
+            ><strong>Doorstep Delivery</strong></span
+          >
+          <ul>
+            <li class="small">Minimum order amount is ₹200</li>
+            <li class="small">Maximum order amount is ₹2000</li>
+          </ul>
+        </div>
+        <div class="mb-3">
+          <span class="small"
+            ><i class="fas fa-store mr-2"></i
+            ><strong>Pickup from store</strong></span
+          >
+          <ul>
+            <li class="small">Minimum order amount is ₹500</li>
+            <li class="small">Maximum order amount is ₹5000</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="cart-orders">
+    <div class="container mt-3">
+      <div class="row py-2 bg-white">
+        <div class="col-3 px-2">
+          <img class="img-fluid" src="assets/img/product-image.png" />
+        </div>
+        <div class="col-5 px-1">
+          <p class="text-muted font-weight-bold mb-0 small">Product Name</p>
+          <span class="text-secondary small">Specification</span>
+        </div>
+        <div
+          class="col-4 d-flex flex-column justify-content-center align-items-center px-2"
+        >
+          <p class="text-primary">₹150.00</p>
+          <select class="form-control w-75"
+            ><option value="12" selected="">1</option
+            ><option value="13">2</option
+            ><option value="14">3</option></select
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container mt-3">
+      <div class="card border-0">
+        <div class="card-header">
+          <p class="mb-0 font-weight-bold small">Price Details</p>
+        </div>
+        <div class="card-body">
+          <div class="d-flex justify-content-between mb-2">
+            <p class="mb-0">Items Total</p>
+            <p class="mb-0">₹150.00</p>
+          </div>
+          <div class="d-flex justify-content-between mb-2">
+            <p class="mb-0">Discount</p>
+            <p class="mb-0 text-primary">-₹50.00</p>
+          </div>
+          <div class="d-flex justify-content-between mb-2">
+            <p class="mb-0">Delivery Charges</p>
+            <p class="mb-0">₹49.00</p>
+          </div>
+        </div>
+        <div class="card-footer bg-white">
+          <div class="d-flex justify-content-between mb-2">
+            <p class="mb-0 font-weight-bold">Total</p>
+            <p class="mb-0 font-weight-bold">₹149.00</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="container mt-3">
+    <div class="alert alert-primary text-center" role="alert">
+      <span class="small">Delivery Charge of ₹49 is applied.</span>
+    </div>
+    <button
+      class="btn btn-primary btn-block fixed-bottom btn-lg radius-0"
+      type="button"
+      onclick="reDirect('#!/orderPlace')"
+    >
+      Continue
+    </button>
+  </div>
+  <div class="container p-4"></div>
+</div>
+<section
+  id="emptyCartSEC"
+  class="empty-cart d-flex align-items-center py-5 bg-light"
+>
+  <div class="container text-center">
+    <i class="fas fa-cart-plus fa-4x text-secondary"></i>
+    <p class="mt-4 h4 text-muted">Your cart is empty</p>
+  </div>
+</section>

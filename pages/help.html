@@ -1,0 +1,81 @@
+<header class="bg-white">
+  <div class="container py-3 shadow-sm">
+    <div class="row">
+      <div class="col-2">
+        <a class="text-dark" onclick="goBack()"
+          ><i class="fas fa-arrow-left"></i
+        ></a>
+      </div>
+      <div class="col-10 pl-0">
+        <p class="mb-0 font-weight-bold text-secondary">Help &amp; Support</p>
+      </div>
+    </div>
+  </div>
+</header>
+<section class="bg-primary">
+  <div class="container-fluid py-4 text-white">
+    <p class="mb-2">Got Queries?</p>
+    <p class="h2">We are here to help!</p>
+  </div>
+</section>
+<section>
+  <div class="container mt-3">
+    <div class="form-group">
+      <label class="d-block">Where do you need help?</label>
+      <div class="custom-control custom-control-inline custom-radio">
+        <input
+          class="custom-control-input"
+          type="radio"
+          id="formCheck-1"
+          name="query"
+        /><label class="custom-control-label" for="formCheck-1">Order</label>
+      </div>
+      <div class="custom-control custom-control-inline custom-radio">
+        <input
+          class="custom-control-input"
+          type="radio"
+          id="formCheck-2"
+          name="query"
+        /><label class="custom-control-label" for="formCheck-2">Payment</label>
+      </div>
+      <div class="custom-control custom-control-inline custom-radio">
+        <input
+          class="custom-control-input"
+          type="radio"
+          id="formCheck-3"
+          name="query"
+        /><label class="custom-control-label" for="formCheck-3">Other</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="hfno">How can we help?</label
+      ><textarea
+        class="form-control"
+        placeholder="Explain your problem clearly"
+        rows="5"
+      ></textarea>
+    </div>
+    <div class="form-group">
+      <label>Email ID</label
+      ><input type="text" class="form-control" inputmode="email" />
+    </div>
+    <div class="form-group">
+      <label for="hfno">Phone Number</label
+      ><input
+        type="text"
+        id="hfno"
+        class="form-control"
+        inputmode="tel"
+        value="1234567890"
+        disabled
+      />
+    </div>
+    <button
+      class="btn btn-primary btn-block btn-lg fixed-bottom radius-0"
+      type="button"
+    >
+      Send your query
+    </button>
+  </div>
+  <div class="container p-5"></div>
+</section>

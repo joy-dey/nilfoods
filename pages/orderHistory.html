@@ -1,0 +1,45 @@
+<div class="bg-white">
+  <div class="container py-3 shadow-sm">
+    <div class="row">
+      <div class="col-2">
+        <a class="text-dark" onclick="goBack()"
+          ><i class="fas fa-arrow-left"></i
+        ></a>
+      </div>
+      <div class="col-10 pl-0">
+        <p class="mb-0 font-weight-bold text-secondary">My Orders</p>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="cart-orders" id="orderHIST">
+  <div class="container mt-3">
+    <div class="row py-2 bg-white">
+      <div class="col-3 px-2">
+        <img class="img-fluid" src="assets/img/product-image.png" />
+      </div>
+      <div class="col-5 px-1">
+        <p class="text-muted font-weight-bold mb-0 small">Product Name</p>
+        <span class="text-secondary small">Specification</span>
+      </div>
+      <div
+        class="col-4 d-flex flex-column justify-content-center align-items-end px-2"
+      >
+        <p class="text-primary">₹150.00</p>
+        <button class="btn btn-primary">Add</button>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="d-flex align-items-center py-5 bg-light vh90 hidden" id="noItemsSec">
+  <div class="container text-center">
+    <i class="fas fa-box fa-4x text-secondary"></i>
+    <p class="mt-4 h4 text-muted">Your order list is empty</p>
+    <a
+      class="btn btn-primary btn-block btn-lg fixed-bottom radius-0 text-white"
+      role="button"
+      href="#!/"
+      >Start Shopping</a
+    >
+  </div>
+</section>
