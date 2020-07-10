@@ -51,8 +51,15 @@ const catchErr = (errP) => {
 };
 /* CartLength is a temporary counter for triggering the cart Page if(cartLength > 0){ cartOpen();😄 }*/
 let cartLength = 0;
-const addToCart = () => {
+const cartItems = [];
+const addToCart = (item) => {
     cartLength++;
+    cartItems.push(item);
+    if (cartLength == 1) {
+        alert(parseInt(cartLength) + " item added to your cart !");
+    } else {
+        alert(parseInt(cartLength) + " items added to your cart !");
+    }
 };
 
 /* Calling the onload functions */
