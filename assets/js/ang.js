@@ -214,7 +214,44 @@ app.controller('cartCtrl', function () {
     if (cartLength > 0) {
         elem('#mainCart').classList.remove('hidden');
         elem('#emptyCartSEC').classList.add('hidden');
+        elem('#cartDYNAMIC');
+        if (cartItems.length > 0) {
+            let output = ``;
+            let TotalPrice = 0;
+            let prcDiscount = "20";
+            let dlvCharge = "50";
+            cartItems.forEach(function (items) {
+                output += `
+                <div class="row py-2 bg-white">
+                    <div class="col-3 px-2">
+                    <img class="img-fluid" src="${items[1]}" />
+                    </div>
+                    <div class="col-5 px-1 d-flex flex-column justify-content-center">
+                        <p class="text-muted font-weight-bold mb-0 tWrap2">${items[0]}</p>
+                        <p class="text-primary mb-0 tWrap1">${items[2]}</p>
+                    </div>
+                    <div
+                    class="col-4 d-flex flex-column justify-content-center align-items-center px-2"
+                    >
+                    <select class="form-control w-75">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    </div>
+                </div>
+                `;
+                TotalPrice += parseInt(items[2]);
+            });
+            elem('#cartDYNAMIC').innerHTML = output;
+            elem('#totalPrice').innerHTML = "₹ " + TotalPrice;
+            elem("#discNum").innerHTML = "- ₹ " + prcDiscount;
+            elem("#dlvCharge").innerHTML = "₹ " + dlvCharge;
+            let grndPrice = parseInt(TotalPrice) - parseInt(prcDiscount)  + parseInt(dlvCharge);
+            elem("#grndPrice").innerHTML = "₹ " + grndPrice;
+        }
     } else {
+        elem('#mainCart').classList.add('hidden');
         elem('#emptyCartSEC').classList.remove('hidden');
     }
 
@@ -282,8 +319,8 @@ app.controller('orderHistoryCtrl', function () {
                     <div
                     class="col-4 d-flex flex-column justify-content-center align-items-end px-2"
                     >
-                    <p class="text-primary">${items.p_price}</p>
-                    <button class="btn btn-primary" onclick='addToCart();alert("${items.p_name} has been added to Cart");'>Add</button>
+                    <p class="text-primary">₹ ${items.p_price}</p>
+                    <button class="btn btn-primary" onclick='addToCart(["${items.p_name}","${items.p_img}","${items.p_price}"])'>Add</button>
                     </div>
                 </div>
                 `;
@@ -322,14 +359,14 @@ app.controller('prodCtrl', function () {
             data.forEach(function (item) {
                 output += `
                 <div class="col-6 px-1 my-1">
-                    <div class="card clickable" onclick='addToCart()'>
+                    <div class="card clickable" onclick='addToCart(["${item.p_name}","${item.p_img}","${item.p_price}"])'>
                     <img
                         class="card-img-top w-100 d-block img-fluid bbnnaa"
                         src="${item.p_img}"
                     />
                     <div class="card-body p-3">
                         <p class="h5 card-title">${item.p_name}</p>
-                        <p class="h6 text-primary">${item.p_price}</p>
+                        <p class="h6 text-primary">₹ ${item.p_price}</p>
                     </div>
                     </div>
                 </div>
