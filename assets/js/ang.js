@@ -16,6 +16,9 @@ catchErr(err) - returns the error for the Request made by fetch and shows if the
 
 */
 
+/* Grand Price for the CART */
+let gGrandPrice = 0;
+
 const app = angular.module('mainApp', ['ngRoute']);
 
 app.config(function ($routeProvider, $locationProvider) {
@@ -247,8 +250,9 @@ app.controller('cartCtrl', function () {
             elem('#totalPrice').innerHTML = "₹ " + TotalPrice;
             elem("#discNum").innerHTML = "- ₹ " + prcDiscount;
             elem("#dlvCharge").innerHTML = "₹ " + dlvCharge;
-            let grndPrice = parseInt(TotalPrice) - parseInt(prcDiscount)  + parseInt(dlvCharge);
+            let grndPrice = parseInt(TotalPrice) - parseInt(prcDiscount) + parseInt(dlvCharge);
             elem("#grndPrice").innerHTML = "₹ " + grndPrice;
+            gGrandPrice = grndPrice;
         }
     } else {
         elem('#mainCart').classList.add('hidden');
@@ -259,6 +263,24 @@ app.controller('cartCtrl', function () {
 app.controller('orderPlaceCtrl', function () {
     fTop();
     navRem();
+    if (cartItems.length > 0) {
+        fetch('model/profile.json')
+            .then(res => { return dResJSON(res); })
+            .then(data => {
+                if (data.length > 1) {
+                    console.log("Developer!.. Please Send only one array as JSON");
+                    alert("There is a problem in the server");
+                };
+                elem('#cartTotal').innerHTML = gGrandPrice;
+                elem('#profileName').innerHTML = data[0].name;
+                elem('#profileAddress').innerHTML = data[0].address;
+                elem('#profilePin').innerHTML = data[0].pin;
+            })
+            .catch(err => { catchErr(err); })
+    } else {
+        alert("You aren't Supposed to be Here !");
+        reDirect("#!/");
+    }
 });
 app.controller('profileCtrl', function () {
     fTop();
