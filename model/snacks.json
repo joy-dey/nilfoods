@@ -1,18 +1,17 @@
-[
-  {
-    "c_img": "../assets/img/snacks (1).webp",
-    "c_name": "Vegetables"
-  },
-  {
-    "c_img": "../assets/img/snacks (2).webp",
-    "c_name": "Fruits"
-  },
-  {
-    "c_img": "../assets/img/snacks (3).webp",
-    "c_name": "Cold Drinks"
-  },
-  {
-    "c_img": "../assets/img/snacks (4).webp",
-    "c_name": "Laundry"
-  }
+[{
+        "c_img": "assets/img/snacks (1).webp",
+        "c_name": "Vegetables"
+    },
+    {
+        "c_img": "assets/img/snacks (2).webp",
+        "c_name": "Fruits"
+    },
+    {
+        "c_img": "assets/img/snacks (3).webp",
+        "c_name": "Cold Drinks"
+    },
+    {
+        "c_img": "assets/img/snacks (4).webp",
+        "c_name": "Laundry"
+    }
 ]

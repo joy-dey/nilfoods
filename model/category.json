@@ -1,114 +1,107 @@
-[
-  {
-    "c_img": "../assets/img/Frame 7.png",
-    "c_name": "Vegetables",
-    "c_items": [
-      {
-        "cs_name": "Leaf",
-        "cs_link": "#!/prod"
-      },
-      {
-        "cs_name": "Root",
-        "cs_link": "#!/prod"
-      },
-      {
-        "cs_name": "Stem",
-        "cs_link": "#!/prod"
-      }
-    ]
-  },
-  {
-    "c_img": "../assets/img/Frame 8.png",
-    "c_name": "Fruits",
-    "c_items": [
-      {
-        "cs_name": "Oranges",
-        "cs_link": "#!/prod"
-      },
-      {
-        "cs_name": "Mangoes",
-        "cs_link": "#!/prod"
-      },
-      {
-        "cs_name": "Amigoes",
-        "cs_link": "#!/prod"
-      }
-    ]
-  },
-  {
-    "c_img": "../assets/img/Frame 9.png",
-    "c_name": "Cold Drinks",
-    "c_items": [
-      {
-        "cs_name": "Cold Drinks",
-        "cs_link": "#!/prod"
-      },
-      {
-        "cs_name": "Beers",
-        "cs_link": "#!/prod"
-      },
-      {
-        "cs_name": "Soda",
-        "cs_link": "#!/prod"
-      },
-      {
-        "cs_name": "Energy Drink",
-        "cs_link": "#!/prod"
-      }
-    ]
-  },
-  {
-    "c_img": "../assets/img/Frame 11.png",
-    "c_name": "Laundry",
-    "c_items": [
-      {
-        "cs_name": "Detergent",
-        "cs_link": "#!/prod"
-      },
-      {
-        "cs_name": "Soaps",
-        "cs_link": "#!/prod"
-      },
-      {
-        "cs_name": "Suprise MF",
-        "cs_link": "#!/prod"
-      }
-    ]
-  },
-  {
-    "c_img": "../assets/img/Frame 12.png",
-    "c_name": "Snacks",
-    "c_items": [
-      {
-        "cs_name": "Chips",
-        "cs_link": "#!/prod"
-      },
-      {
-        "cs_name": "Biscuits",
-        "cs_link": "#!/prod"
-      },
-      {
-        "cs_name": "Chocolate",
-        "cs_link": "#!/prod"
-      }
-    ]
-  },
-  {
-    "c_img": "../assets/img/Frame 13.png",
-    "c_name": "Bakery",
-    "c_items": [
-      {
-        "cs_name": "Cookies",
-        "cs_link": "#!/prod"
-      },
-      {
-        "cs_name": "Pastries",
-        "cs_link": "#!/prod"
-      },
-      {
-        "cs_name": "Bread",
-        "cs_link": "#!/prod"
-      }
-    ]
-  }
+[{
+        "c_img": "assets/img/Frame 7.png",
+        "c_name": "Vegetables",
+        "c_items": [{
+                "cs_name": "Leaf",
+                "cs_link": "#!/prod"
+            },
+            {
+                "cs_name": "Root",
+                "cs_link": "#!/prod"
+            },
+            {
+                "cs_name": "Stem",
+                "cs_link": "#!/prod"
+            }
+        ]
+    },
+    {
+        "c_img": "assets/img/Frame 8.png",
+        "c_name": "Fruits",
+        "c_items": [{
+                "cs_name": "Oranges",
+                "cs_link": "#!/prod"
+            },
+            {
+                "cs_name": "Mangoes",
+                "cs_link": "#!/prod"
+            },
+            {
+                "cs_name": "Amigoes",
+                "cs_link": "#!/prod"
+            }
+        ]
+    },
+    {
+        "c_img": "assets/img/Frame 9.png",
+        "c_name": "Cold Drinks",
+        "c_items": [{
+                "cs_name": "Cold Drinks",
+                "cs_link": "#!/prod"
+            },
+            {
+                "cs_name": "Beers",
+                "cs_link": "#!/prod"
+            },
+            {
+                "cs_name": "Soda",
+                "cs_link": "#!/prod"
+            },
+            {
+                "cs_name": "Energy Drink",
+                "cs_link": "#!/prod"
+            }
+        ]
+    },
+    {
+        "c_img": "assets/img/Frame 11.png",
+        "c_name": "Laundry",
+        "c_items": [{
+                "cs_name": "Detergent",
+                "cs_link": "#!/prod"
+            },
+            {
+                "cs_name": "Soaps",
+                "cs_link": "#!/prod"
+            },
+            {
+                "cs_name": "Suprise MF",
+                "cs_link": "#!/prod"
+            }
+        ]
+    },
+    {
+        "c_img": "assets/img/Frame 12.png",
+        "c_name": "Snacks",
+        "c_items": [{
+                "cs_name": "Chips",
+                "cs_link": "#!/prod"
+            },
+            {
+                "cs_name": "Biscuits",
+                "cs_link": "#!/prod"
+            },
+            {
+                "cs_name": "Chocolate",
+                "cs_link": "#!/prod"
+            }
+        ]
+    },
+    {
+        "c_img": "assets/img/Frame 13.png",
+        "c_name": "Bakery",
+        "c_items": [{
+                "cs_name": "Cookies",
+                "cs_link": "#!/prod"
+            },
+            {
+                "cs_name": "Pastries",
+                "cs_link": "#!/prod"
+            },
+            {
+                "cs_name": "Bread",
+                "cs_link": "#!/prod"
+            }
+        ]
+    }
 ]
