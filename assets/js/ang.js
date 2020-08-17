@@ -84,7 +84,7 @@ app.controller("homeCtrl", function () {
 
   /* --------------- Async function for the banner loading-------------------- */
   let sliderShow = async () => {
-    await fetch("model/upBanner.php")
+    await fetch("model/upBanner.json")
       .then((res) => {
         return dResJSON(res);
       })
@@ -101,7 +101,7 @@ app.controller("homeCtrl", function () {
         catchErr(err);
       });
 
-    await fetch("model/dnBanner.php")
+    await fetch("model/dnBanner.json")
       .then((res) => {
         return dResJSON(res);
       })
@@ -123,7 +123,7 @@ app.controller("homeCtrl", function () {
   /* Calling the function for showing the slider after the thing is loaded */
   sliderShow();
   /* --------------------- Category Show -------------------- */
-  fetch("model/frCategory.php")
+  fetch("model/frCategory.json")
     .then((res) => {
       return dResJSON(res);
     })
@@ -139,7 +139,7 @@ app.controller("homeCtrl", function () {
     .catch((err) => {
       catchErr(err);
     });
-  fetch("model/fds.php")
+  fetch("model/fds.json")
     .then((res) => {
       return dResJSON(res);
     })
@@ -155,7 +155,7 @@ app.controller("homeCtrl", function () {
     .catch((err) => {
       catchErr(err);
     });
-  fetch("model/snacks.php")
+  fetch("model/snacks.json")
     .then((res) => {
       return dResJSON(res);
     })
@@ -181,7 +181,7 @@ app.controller("categoryCtrl", function () {
   fTop();
   navShow(3);
 
-  fetch("model/category.php")
+  fetch("model/category.json")
     .then((res) => {
       return dResJSON(res);
     })
@@ -317,7 +317,7 @@ app.controller("orderPlaceCtrl", function () {
 app.controller("profileCtrl", function () {
   fTop();
   navShow(5);
-  fetch("model/profile.php")
+  fetch("model/profile.json")
     .then((res) => {
       return dResJSON(res);
     })
@@ -360,7 +360,7 @@ app.controller("editProfileCtrl", function () {
 app.controller("orderHistoryCtrl", function () {
   fTop();
   navRem();
-  fetch("model/orderHistory.php")
+  fetch("model/orderHistory.json")
     .then((res) => {
       return dResJSON(res);
     })
@@ -425,8 +425,8 @@ app.controller("prodCtrl", function ($routeParams) {
     "background: black; color: yellow; font-size: 1rem; font-weight: bold; padding: 1rem"
   );
 
-  /* TODO: change the .json to .php */
-  fetch("model/product.php", {
+  /* TODO: change the .json to .json */
+  fetch("model/product.json", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
