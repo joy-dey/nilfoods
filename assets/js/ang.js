@@ -263,10 +263,11 @@ app.controller("cartCtrl", function () {
                     <div
                     class="col-4 d-flex flex-column justify-content-center align-items-center px-2"
                     >
-                    <select class="form-control w-75">
-                        <option value="1" selected>1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
+                    <input type="number" class="form-control mr-1" inputmode="tel" value="1">
+                    <select class="form-control mr-1">
+                      <option value="kgs">kgs</option>
+                      <option value="gm">gm</option>
+                      <option value="PCs">PCs</option>
                     </select>
                     </div>
                 </div>
@@ -442,18 +443,23 @@ app.controller("prodCtrl", function ($routeParams) {
       let output = "";
       data.forEach(function (item) {
         output += `
-                <div class="col-6 px-1 my-1">
-                    <div class="card clickable" onclick='addToCart(["${item.p_name}","${item.p_img}","${item.p_price}"])'>
-                    <img
-                        class="card-img-top w-100 d-block img-fluid bbnnaa"
-                        src="${item.p_img}"
-                    />
-                    <div class="card-body p-3">
-                        <p class="h5 card-title">${item.p_name}</p>
-                        <p class="h6 text-primary">₹ ${item.p_price}</p>
-                    </div>
-                    </div>
-                </div>
+                  <div class="col-6 col-sm-12 col-md-4 col-lg-3 px-1 my-3">
+                      <div class="item-holder text-center">
+                          <img class="img-fluid w-75 rounded" src="${item.p_img}">
+                          <p class="h6 mt-2">${item.p_name}</p>
+                          <p class="h6 text-success">₹ ${item.p_price}</p>
+                          <div class="d-flex justify-content-center">
+                            <button 
+                              class="btn btn-primary mr-2 mb-2" 
+                              type="button"
+                              onclick='addToCart(["${item.p_name}","${item.p_img}","${item.p_price}"])'
+                              > 
+                              &nbsp;
+                              Add to Cart
+                            </button>
+                          </div>
+                      </div>
+                  </div>
                 `;
       });
       elem("#priceListing").innerHTML = output;
