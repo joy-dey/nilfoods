@@ -19,7 +19,9 @@
       id="profile_img"
       src="assets/img/product-image.png"
     />
-    <p class="h5 my-4 text-secondary font-weight-bold" id="profile_name">Sample Name</p>
+    <p class="h5 my-4 text-secondary font-weight-bold" id="profile_name">
+      Sample Name
+    </p>
     <a
       class="btn btn-outline-secondary btn-sm"
       role="button"
@@ -49,9 +51,14 @@
         >
       </li>
       <li class="py-3 border-bottom">
-        <a class="text-dark text-decoration-none d-block" href="login.html"
-          ><i class="fa fa-sign-out mr-3 text-primary"></i>Sign Out</a
+        <a
+          class="text-dark text-decoration-none d-block"
+          onclick="logoutFromHere()"
+          id="sinout"
         >
+          <i class="fa fa-sign-out mr-3 text-primary"></i>
+          Sign Out
+        </a>
       </li>
     </ul>
   </div>

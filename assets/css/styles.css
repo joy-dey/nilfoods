@@ -38,6 +38,16 @@
   grid-gap: 5px;
 }
 
+.category-holder {
+  margin: 0.6rem 0;
+}
+.category-holder img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 0.4rem;
+  object-fit: cover;
+}
+
 .offer-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -136,7 +146,7 @@
 .catIMG {
   height: 80px;
   width: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 .clickable .card-body p {
   display: -webkit-box;
@@ -149,20 +159,33 @@
   width: 100px !important;
   object-fit: cover;
 }
-.orHis{
+.orHis {
   height: 80px;
   width: 80px !important;
   object-fit: cover;
 }
-.tWrap1{
+.tWrap1 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.tWrap2{
+.tWrap2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+.item-holder img {
+  height: 148px;
+  width: 148px;
+  object-fit: cover;
+}
+.container-mm {
+  width: 80%;
+  margin: 0 auto;
+}
+.bbltxt {
+  padding: 0.8rem 1.5rem !important;
+  height: 50px;
 }

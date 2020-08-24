@@ -27,4 +27,7 @@ if ($sql) {
     $arOut[] = 0;
 }
 
+
 echo json_encode($arOut);
+
+mysqli_close($cn);

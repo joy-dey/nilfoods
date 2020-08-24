@@ -13,40 +13,38 @@
       href="https://fonts.googleapis.com/css?family=Poppins:400,700"
     />
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css" />
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" />
-    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css" />
-    <link rel="stylesheet" href="assets/slick/slick-theme.css" />
-    <link rel="stylesheet" href="assets/slick/slick.css" />
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <style>
+      .downLoadText {
+        position: fixed;
+        bottom: 1.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .mdle {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+      }
+    </style>
   </head>
 
-  <body ng-app="mainApp">
+  <body>
     <main>
-      <ul
-        class="nav nav-tabs fixed-bottom bg-white py-2 d-flex justify-content-between bottom-nav"
-        id="menuDown"
+      <section
+        class="login-section d-flex justify-content-center align-items-center flex-column vh-100"
       >
-        <li class="nav-item">
-          <a class="nav-link" href="#!/"><i class="fas fa-home"></i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#!/search"><i class="fas fa-search"></i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#!/category"
-            ><i class="fas fa-boxes"></i
-          ></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#!/cart"
-            ><i class="fas fa-shopping-cart"></i
-          ></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#!/profile"><i class="fas fa-user"></i></a>
-        </li>
-      </ul>
-      <ng-view></ng-view>
+        <div class="container-mm text-center">
+          <div class="top-banner">
+            <h3 class="brand-name mdle">
+              Nil&nbsp;<span class="text-primary">Foods Delivery</span>
+            </h3>
+            <p class="downLoadText">Please Wait...</p>
+          </div>
+        </div>
+      </section>
     </main>
     <div class="noview">
       <div
@@ -60,11 +58,6 @@
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/slick/slick.js"></script>
-    <script src="assets/js/angularjs/angular.min.js"></script>
-    <script src="assets/js/angularjs/angular-router.min.js"></script>
-    <script src="assets/js/drb.js"></script>
-    <script src="assets/js/ang.js"></script>
+    <script src="assets/js/entry.js"></script>
   </body>
 </html>
