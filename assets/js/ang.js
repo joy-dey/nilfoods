@@ -84,7 +84,9 @@ app.controller("homeCtrl", function () {
 
   /* --------------- Async function for the banner loading-------------------- */
   let sliderShow = async () => {
-    await fetch("model/upBanner.json")
+    await fetch(
+      "https://nilfoods.xcellentcomputel.in/gstsoft/model/sm_fnt.php"
+    )
       .then((res) => {
         return dResJSON(res);
       })
@@ -92,7 +94,7 @@ app.controller("homeCtrl", function () {
         let outputBanner = ``;
         data.forEach(function (img) {
           outputBanner += `
-                    <img class="img-fluid" src="${img.b_img}" />
+                    <img class="img-fluid" src="https://nilfoods.xcellentcomputel.in/gstsoft/${img.b_img}" />
                 `;
         });
         elem("#upBanner").innerHTML = outputBanner;
@@ -101,7 +103,9 @@ app.controller("homeCtrl", function () {
         catchErr(err);
       });
 
-    await fetch("model/dnBanner.json")
+    await fetch(
+      "https://nilfoods.xcellentcomputel.in/gstsoft/model/sm_down.php"
+    )
       .then((res) => {
         return dResJSON(res);
       })
@@ -109,8 +113,8 @@ app.controller("homeCtrl", function () {
         let outputBanner = ``;
         data.forEach(function (img) {
           outputBanner += `
-                      <img class="img-fluid" src="${img.b_img}" />
-                  `;
+              <img class="img-fluid" src="https://nilfoods.xcellentcomputel.in/gstsoft/${img.b_img}" />
+          `;
         });
         elem("#dnBanner").innerHTML = outputBanner;
       })
@@ -172,10 +176,18 @@ app.controller("homeCtrl", function () {
       catchErr(err);
     });
 });
+
 app.controller("searchCtrl", function () {
   fTop();
   navShow(2);
   elem("#txtSearch").focus();
+
+  if (elem("#btnSearchOpen")) {
+    elem("#frmSearch").addEventListener("submit", (e) => {
+      e.preventDefault();
+      reDirect("#!/prod/c:" + elem("#txtSearch").value);
+    });
+  }
 });
 app.controller("categoryCtrl", function () {
   fTop();
@@ -186,10 +198,11 @@ app.controller("categoryCtrl", function () {
       return dResJSON(res);
     })
     .then((data) => {
-      let accordionCate = `<div role="tablist" id="accordion-1">`;
-      data.forEach(function (category, count) {
-        count += 1;
-        accordionCate += `
+      if (data[0] != 0) {
+        let accordionCate = `<div role="tablist" id="accordion-1">`;
+        data.forEach(function (category, count) {
+          count += 1;
+          accordionCate += `
                     <div class="card mb-3">
                     <div class="card-header" role="tab">
                     <div
@@ -216,22 +229,30 @@ app.controller("categoryCtrl", function () {
                     <div class="card-body">
                     <ul class="list-group">
                         `;
-        category.c_items.forEach(function (subCat) {
-          accordionCate += `
+          category.c_items.forEach(function (subCat) {
+            accordionCate += `
                         <li class="list-group-item" onclick='reDirect("#!/prod/${subCat.cs_link}")'>
                             <span>${subCat.cs_name}</span>
                         </li>
                         `;
-        });
-        accordionCate += `
+          });
+          accordionCate += `
                     </ul>
                     </div>
                     </div>
                 </div>
                 `;
-      });
-      accordionCate += "</div>";
-      elem("#acd").innerHTML = accordionCate;
+        });
+        accordionCate += "</div>";
+        elem("#acd").innerHTML = accordionCate;
+      } else {
+        elem("#acd").innerHTML = `
+        <div>
+          <p class="text-danger text-center">There was a problem.. Please Try again Later</p> 
+        </div>
+        `;
+        console.error("There was a problem in the PHP Code..");
+      }
     })
     .catch((err) => {
       catchErr(err);
@@ -419,52 +440,101 @@ app.controller("prodCtrl", function ($routeParams) {
   fTop();
   navRem();
 
-  console.log(
-    "%c(" +
-      $routeParams.id +
-      ") the id with which the data can be retrived from database!",
-    "background: black; color: yellow; font-size: 1rem; font-weight: bold; padding: 1rem"
-  );
+  let rp = $routeParams.id;
+  rp = rp.split(":");
 
-  /* TODO: change the .json to .json */
-  fetch("model/product.json", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      id: $routeParams.id,
-    }),
-  })
-    .then((res) => {
-      return dResJSON(res);
+  if (rp[0] == "c" || rp[0] == "id") {
+    elem("#searchTextbx").innerHTML = rp[1];
+  } else {
+    elem("#searchTextbx").innerHTML = rp;
+  }
+
+  if (rp[0] == "c") {
+    fetch("model/products.json", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: $routeParams.id,
+      }),
     })
-    .then((data) => {
-      let output = "";
-      data.forEach(function (item) {
-        output += `
-                  <div class="col-6 col-sm-12 col-md-4 col-lg-3 px-1 my-3">
-                      <div class="item-holder text-center">
-                          <img class="img-fluid w-75 rounded" src="${item.p_img}">
-                          <p class="h6 mt-2">${item.p_name}</p>
-                          <p class="h6 text-success">₹ ${item.p_price}</p>
-                          <div class="d-flex justify-content-center">
-                            <button 
-                              class="btn btn-primary mr-2 mb-2" 
-                              type="button"
-                              onclick='addToCart(["${item.p_name}","${item.p_img}","${item.p_price}"])'
-                              > 
-                              &nbsp;
-                              Add to Cart
-                            </button>
-                          </div>
-                      </div>
-                  </div>
-                `;
+      .then((res) => {
+        return dResJSON(res);
+      })
+      .then((data) => {
+        let output = "";
+        data.forEach(function (item) {
+          output += `
+                    <div class="col-6 col-sm-12 col-md-4 col-lg-3 px-1 my-3">
+                        <div class="item-holder text-center">
+                            <img class="img-fluid w-75 rounded" src="${item.p_img}">
+                            <p class="h6 mt-2">${item.p_name}</p>
+                            <p class="h6 text-success">₹ ${item.p_price}</p>
+                            <div class="d-flex justify-content-center">
+                              <button 
+                                class="btn btn-primary mr-2 mb-2" 
+                                type="button"
+                                onclick='addToCart(["${item.p_name}","${item.p_img}","${item.p_price}"])'
+                                > 
+                                Add to Cart
+                              </button>
+                            </div>
+                        </div>
+                    </div>
+                  `;
+        });
+        elem("#priceListing").innerHTML = output;
+      })
+      .catch((err) => {
+        catchErr();
       });
-      elem("#priceListing").innerHTML = output;
+  } else if (rp[0] == "id") {
+    fetch("model/product.json", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: $routeParams.id,
+      }),
     })
-    .catch((err) => {
-      catchErr();
-    });
+      .then((res) => {
+        return dResJSON(res);
+      })
+      .then((data) => {
+        let output = "";
+        data.forEach(function (item) {
+          output += `
+                    <div class="col-6 col-sm-12 col-md-4 col-lg-3 px-1 my-3">
+                        <div class="item-holder text-center">
+                            <img class="img-fluid w-75 rounded" src="${item.p_img}">
+                            <p class="h6 mt-2">${item.p_name}</p>
+                            <p class="h6 text-success">₹ ${item.p_price}</p>
+                            <div class="d-flex justify-content-center">
+                              <button 
+                                class="btn btn-primary mr-2 mb-2" 
+                                type="button"
+                                onclick='addToCart(["${item.p_name}","${item.p_img}","${item.p_price}"])'
+                                > 
+                                Add to Cart
+                              </button>
+                            </div>
+                        </div>
+                    </div>
+                  `;
+        });
+        elem("#priceListing").innerHTML = output;
+      })
+      .catch((err) => {
+        catchErr();
+      });
+  } else {
+    elem("#priceListing").innerHTML = `    
+      <div class="col-12 mt-3">
+        <p class="text-danger text-center">Invalid Product Search !</p>
+      </div>
+    `;
+    console.error(undefined);
+  }
 });

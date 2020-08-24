@@ -3,30 +3,5 @@
     "p_img": "assets/img/Frame 72.webp",
     "p_name": "Tomatoes",
     "p_price": "199.98"
-  },
-  {
-    "p_img": "assets/img/Frame 73.webp",
-    "p_name": "Potaoes",
-    "p_price": "499.98"
-  },
-  {
-    "p_img": "assets/img/Frame 74.webp",
-    "p_name": "Cabbage",
-    "p_price": "499.99"
-  },
-  {
-    "p_img": "assets/img/Frame 75.webp",
-    "p_name": "Carrots",
-    "p_price": "69.69"
-  },
-  {
-    "p_img": "assets/img/image 70.webp",
-    "p_name": "Cauliflower",
-    "p_price": "694.20"
-  },
-  {
-    "p_img": "assets/img/image 71.webp",
-    "p_name": "Beetroot",
-    "p_price": "30.00"
   }
 ]

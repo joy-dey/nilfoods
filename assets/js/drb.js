@@ -68,6 +68,8 @@ const addToCart = (item) => {
   }
 };
 
+
+
 /* Calling the onload functions */
 fTop();
 activeMenu(0);
