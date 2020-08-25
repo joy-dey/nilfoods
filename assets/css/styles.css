@@ -146,7 +146,7 @@
 .catIMG {
   height: 80px;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 .clickable .card-body p {
   display: -webkit-box;
