@@ -577,7 +577,15 @@ app.controller("profileCtrl", function () {
         <i class="fa fa-sign-out mr-3 text-danger"></i>
         Sign out
     `;
-    fetch("model/profile.json")
+    fetch(urlServe + urlServeGST + "model/show_profile.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user: username,
+      }),
+    })
       .then((res) => {
         return dResJSON(res);
       })
@@ -586,7 +594,7 @@ app.controller("profileCtrl", function () {
           console.log("Developer!.. Please Send only one array as JSON");
           alert("There is a problem in the server");
         }
-        elem("#profile_img").src = data[0].img;
+        elem("#profile_img").src = "assets/img/product-image.png";
         elem("#profile_name").innerHTML = data[0].name;
       })
       .catch((err) => {
@@ -661,16 +669,22 @@ app.controller("orderHistoryCtrl", function () {
             output += `
               <div class="row py-2 bg-white">
                     <div class="col-3 px-2">
-                    <img class="img-fluid orHis catIMG" src="${urlServe + urlServeGST + items.p_img}" />
+                    <img class="img-fluid orHis catIMG" src="${
+                      urlServe + urlServeGST + items.p_img
+                    }" />
                     </div>
                     <div class="col-7 px-1 d-flex flex-column justify-content-center">
-                    <p class="text-muted font-weight-bold mb-0 small">${items.p_name}</p>
+                    <p class="text-muted font-weight-bold mb-0 small">${
+                      items.p_name
+                    }</p>
                     <span class="text-secondary small">${items.p_desc}</span>
                     </div>
                     <div
                     class="col-2 d-flex flex-column justify-content-center align-items-end px-2"
                     >
-                    <button class="btn btn-primary btn-sm" onclick='reDirect("#!/prod/id:${items.p_name}")'>
+                    <button class="btn btn-primary btn-sm" onclick='reDirect("#!/prod/id:${
+                      items.p_name
+                    }")'>
                       <i class="fas fa-chevron-right"></i>
                     </button>
                     </div>
