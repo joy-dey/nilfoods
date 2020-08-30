@@ -16,7 +16,7 @@ catchErr(err) - returns the error for the Request made by fetch and shows if the
 */
 
 let urlServe = "https://nilfoods.xcellentcomputel.in/";
-let urlServeGST = "gstsoft/";
+let urlServeGST = "admin/";
 /* Initial Funtion to See if the User is logged in or not */
 (() => {
   if (
@@ -73,7 +73,7 @@ let urlServeGST = "gstsoft/";
 
 username = localStorage.getItem("usernameRAW");
 
-let addToCart = async (prdName, lUnit, lQty, lRate, lMRP, el) => {
+const addToCart = async (prdName, lUnit, lQty, lRate, lMRP, el) => {
   if (username == "demo") {
     alert("Please Login in to use the Cart and Buy Items");
     localStorage.removeItem("usernameRAW");
@@ -113,7 +113,7 @@ let addToCart = async (prdName, lUnit, lQty, lRate, lMRP, el) => {
     el.disabled = false;
   }
 };
-let deleteFromCart = async (idR) => {
+const deleteFromCart = async (idR) => {
   await fetch(urlServe + urlServeGST + "model/deleteCart.php", {
     method: "POST",
     headers: {
@@ -138,7 +138,7 @@ let deleteFromCart = async (idR) => {
       console.error(err);
     });
 };
-let orderPlace = async () => {
+const orderPlace = async () => {
   await fetch(urlServe + urlServeGST + "model/confirm_order.php", {
     method: "POST",
     headers: {
@@ -156,11 +156,36 @@ let orderPlace = async () => {
       }
     })
     .then((data) => {
-      alert(data);
       reDirect("#!/orderPlace");
     })
     .catch((err) => {
       console.error(err);
+    });
+};
+const updateDetails = () => {
+  fetch(urlServe + urlServeGST + "model/edit_profile.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      user: username,
+      name: elem("#txtName").value,
+      email: elem("#txtEmail").value,
+      address: elem("#txtAddress").value,
+      state: elem("#txtState").value,
+      pin: elem("#txtPIN").value,
+    }),
+  })
+    .then((res) => {
+      return dResTEXT(res);
+    })
+    .then((data) => {
+      alert(data);
+      window.location.reload();
+    })
+    .catch((err) => {
+      catchErr(err);
     });
 };
 
@@ -452,22 +477,28 @@ app.controller("cartCtrl", function () {
         elem("#emptyCartSEC").classList.add("hidden");
         let theoutput = ``;
         let TotalPrice = 0;
-        let prcDiscount = "20";
+        let prcDiscount = "0";
         let dlvCharge = "50";
         data.forEach(function (items) {
           theoutput += `
                 <div class="row py-2 bg-white">
                     <div class="col-3 px-2">
-                    <img class="img-fluid" src="${urlServe + urlServeGST + items.pimg}" />
+                    <img class="img-fluid catIMG" src="${
+                      urlServe + urlServeGST + items.pimg
+                    }" />
                     </div>
                     <div class="col-3 px-1 d-flex flex-column justify-content-center">
-                        <p class="text-muted font-weight-bold mb-0 tWrap2">${items.pname}</p>
+                        <p class="text-muted font-weight-bold mb-0 tWrap2">${
+                          items.pname
+                        }</p>
                         <p class="text-primary mb-0 tWrap1">${items.rate}</p>
                     </div>
                     <div
                     class="col-6 d-flex flex-row justify-content-center align-items-center px-2"
                     >
-                    <input type="number" class="form-control" style="width: 50px" inputmode="tel" value="${items.qty}">
+                    <input type="number" class="form-control" style="width: 50px" inputmode="tel" value="${
+                      items.qty
+                    }">
                       <select class="form-control mr-1" style="width: 80px">
                         <option value="pc">pc</option>
                         <option value="kg">kg</option>
@@ -563,7 +594,6 @@ app.controller("profileCtrl", function () {
       });
   }
 });
-/* TODO: Discuss about the below functionality */
 app.controller("editProfileCtrl", function () {
   fTop();
   navRem();
@@ -573,7 +603,15 @@ app.controller("editProfileCtrl", function () {
     localStorage.removeItem("userState");
     window.location.href = "login.html";
   } else {
-    fetch("model/profile.json")
+    fetch(urlServe + urlServeGST + "model/show_profile.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user: username,
+      }),
+    })
       .then((res) => {
         return dResJSON(res);
       })
@@ -585,9 +623,10 @@ app.controller("editProfileCtrl", function () {
         elem("#txtName").value = data[0].name;
         elem("#txtEmail").value = data[0].email;
         elem("#txtAddress").value = data[0].address;
-        elem("#txtGender").value = data[0].gender;
+        elem("#txtState").value = data[0].state;
         elem("#txtPhone").value = data[0].phone;
         elem("#txtPIN").value = data[0].pin;
+        elem("#mainShowProfile").style.display = "block";
       })
       .catch((err) => {
         catchErr(err);
@@ -603,7 +642,15 @@ app.controller("orderHistoryCtrl", function () {
     localStorage.removeItem("userState");
     window.location.href = "login.html";
   } else {
-    fetch(urlServe + urlServeGST + "model/orderHistory.php")
+    fetch(urlServe + urlServeGST + "model/orderHistory.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user: username,
+      }),
+    })
       .then((res) => {
         return dResJSON(res);
       })
@@ -612,9 +659,9 @@ app.controller("orderHistoryCtrl", function () {
           let output = `<div class="container mt-3">`;
           data.forEach(function (items) {
             output += `
-                <div class="row py-2 bg-white">
+              <div class="row py-2 bg-white">
                     <div class="col-3 px-2">
-                    <img class="img-fluid orHis" src="${items.p_img}" />
+                    <img class="img-fluid orHis catIMG" src="${urlServe + urlServeGST + items.p_img}" />
                     </div>
                     <div class="col-7 px-1 d-flex flex-column justify-content-center">
                     <p class="text-muted font-weight-bold mb-0 small">${items.p_name}</p>

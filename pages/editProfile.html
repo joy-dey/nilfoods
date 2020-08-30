@@ -12,11 +12,11 @@
     </div>
   </div>
 </div>
-<section class="profile-edit-section">
+<section class="profile-edit-section" id="mainShowProfile" style="display: none;">
   <div class="container mt-3">
     <div class="form-group">
       <label class="font-weight-bold text-muted">Your Name</label
-      ><input type="text" id="txtName" class="form-control" />
+      ><input type="text" id="txtName" class="form-control" required />
     </div>
     <div class="form-group">
       <label class="font-weight-bold text-muted">Your Email</label
@@ -24,15 +24,11 @@
     </div>
     <div class="form-group">
       <label class="font-weight-bold text-muted">Your Address</label>
-      <input type="text" id="txtAddress" class="form-control" />
+      <input type="text" id="txtAddress" class="form-control" required />
     </div>
     <div class="form-group">
-      <label class="font-weight-bold text-muted d-block">Your Gender</label>
-      <select id="txtGender" class="form-control">
-        <option value="" disabled selected hidden>Select Gender</option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-      </select>
+      <label class="font-weight-bold text-muted">Your State</label>
+      <input type="text" id="txtState" class="form-control" required />
     </div>
     <div class="form-group">
       <label class="font-weight-bold text-muted">Your Phone Number</label
@@ -40,7 +36,7 @@
         type="text"
         class="form-control"
         readonly=""
-        value="1234567890"
+        value=""
         id="txtPhone"
         disabled=""
       /><small class="form-text text-danger"
@@ -49,12 +45,11 @@
     </div>
     <div class="form-group">
       <label class="font-weight-bold text-muted">PIN Code</label
-      ><input type="text" id="txtPIN" class="form-control" />
+      ><input type="text" id="txtPIN" class="form-control" required />
     </div>
     <button
       class="btn btn-primary btn-block btn-lg fixed-bottom radius-0"
-      type="button"
-      onclick="alert('Function Not Available');"
+      onclick="updateDetails()"
     >
       Update Details
     </button>

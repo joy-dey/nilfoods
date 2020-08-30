@@ -28,7 +28,7 @@
     <title>Nil Foods Delivery</title>
     <!-- Manifest -->
     <link rel="manifest" href="manifest.json" />
-    
+
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
     <link
       rel="stylesheet"
@@ -52,7 +52,9 @@
               <input
                 type="text"
                 class="form-control"
-                placeholder="Enter Name"
+                placeholder="Enter Name*"
+                id="txtName"
+                required
               />
             </div>
             <div class="form-group text-left mt-4">
@@ -61,70 +63,74 @@
                 class="form-control"
                 placeholder="Enter Email"
                 inputmode="email"
+                id="txtEmail"
               />
             </div>
             <div class="form-group text-left mt-4">
               <input
                 type="text"
                 class="form-control"
-                placeholder="Enter Address"
-                inputmode="email"
-              />
-            </div>
-            <div class="form-group text-left mt-4">
-              <div class="custom-control custom-control-inline custom-radio">
-                <input
-                  class="custom-control-input"
-                  type="radio"
-                  id="formCheck-1"
-                  name="gender"
-                /><label class="custom-control-label" for="formCheck-1"
-                  >Male</label
-                >
-              </div>
-              <div class="custom-control custom-control-inline custom-radio">
-                <input
-                  class="custom-control-input"
-                  type="radio"
-                  id="formCheck-2"
-                  name="gender"
-                /><label class="custom-control-label" for="formCheck-2"
-                  >Female</label
-                >
-              </div>
-            </div>
-            <div class="form-group text-left mt-4 mb-3">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Enter Phone Number"
+                placeholder="Enter Address*"
+                id="txtAddress"
+                required
               />
             </div>
             <div class="form-group text-left mt-4 mb-3">
               <input
                 type="text"
                 class="form-control"
-                placeholder="Enter Post Code / PIN Code"
+                placeholder="Enter State*"
+                id="txtState"
+                required
+              />
+            </div>
+            <div class="form-group text-left mt-4 mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Phone Number*"
+                id="txtPhone"
+                inputmode="tel"
+                maxlength="10"
+                required
+              />
+            </div>
+
+            <div class="form-group text-left mt-4 mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Post Code / PIN Code *"
+                id="txtPIN"
+                onblur="showBtn()"
+                required
               />
             </div>
             <div class="form-group text-left mt-4 mb-3">
               <input
                 type="password"
                 class="form-control"
-                placeholder="Enter Password"
+                placeholder="Enter Password*"
+                id="txtPass"
+                required
               />
             </div>
-            <a
+            <button
               class="btn btn-primary btn-block text-uppercase font-weight-bold text-white mt-4"
-              role="button"
-              href="index.html"
-              >Signup</a
-            ><a
+              id="btnSubmit"
+              onclick="saveUser()"
+              style="display: none"
+            >
+              Signup
+            </button>
+            <a
               class="btn btn-outline-primary btn-block btn-sm text-uppercase text-primary text-white mt-3"
               role="button"
               href="login.html"
-              >Already have an Account? login</a
+              style="margin-top: 4rem !important"
             >
+              Already have an Account? login
+            </a>
           </div>
         </div>
       </section>
@@ -146,6 +152,48 @@
       checkEnUser();
     </script>
     <script src="assets/js/app.js"></script>
+    <script>
+      let showBtn = () => {
+        document.getElementById("btnSubmit").style.display = "block";
+      };
 
+      let urlServe = "https://nilfoods.xcellentcomputel.in/";
+      let urlServeGST = "admin/";
+
+      const saveUser = async () => {
+        document.getElementById("btnSubmit").disabled = true;
+        await fetch(urlServe + urlServeGST + "model/signup.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: document.getElementById("txtName").value,
+            email: document.getElementById("txtEmail").value,
+            address: document.getElementById("txtAddress").value,
+            state: document.getElementById("txtState").value,
+            phone: document.getElementById("txtPhone").value,
+            pin: document.getElementById("txtPIN").value,
+            pass: document.getElementById("txtPass").value,
+          }),
+        })
+          .then((res) => {
+            if (!res.ok) {
+              console.error("API not Found!");
+              alert("Please Try again Later");
+            } else {
+              return res.text();
+            }
+          })
+          .then((data) => {
+            alert(data);
+            document.getElementById("btnSubmit").disabled = false;
+            window.location.href = "index.html";
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      };
+    </script>
   </body>
 </html>

@@ -74,7 +74,7 @@ if (elem("#lgFrm")) {
     elem("#lgFrm").addEventListener("submit", (e) => {
       e.preventDefault();
       fetch(
-        "https://nilfoods.xcellentcomputel.in/gstsoft/model/loginUser.php",
+        "https://nilfoods.xcellentcomputel.in/admin/model/loginUser.php",
         {
           method: "POST",
           headers: {
