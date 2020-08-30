@@ -1,0 +1,26 @@
+{
+    "name": "NilFoods",
+    "short_name": "NilFoods",
+    "icons": [
+      {
+        "src": "OGWhap.jpg",
+        "sizes": "192x192",
+        "type": "image/jpg"
+      },
+      {
+        "src": "OGWhap.jpg",
+        "sizes": "414x414",
+        "type": "image/jpg"
+      },
+      {
+        "src": "OGWhap.jpg",
+        "sizes": "512x512",
+        "type": "image/jpg"
+      }
+    ],
+    "orientation": "portrait-primary",
+    "start_url": "index.html",
+    "display": "standalone",
+    "theme_color": "#0072ff",
+    "background_color": "#ffffff"
+}
