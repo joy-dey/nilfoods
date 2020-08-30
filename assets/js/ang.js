@@ -227,7 +227,6 @@ app.config(function ($routeProvider, $locationProvider) {
     });
 });
 
-
 app.controller("homeCtrl", function () {
   fTop();
   navShow(1);
@@ -604,7 +603,7 @@ app.controller("orderHistoryCtrl", function () {
     localStorage.removeItem("userState");
     window.location.href = "login.html";
   } else {
-    fetch("model/orderHistory.json")
+    fetch(urlServe + urlServeGST + "model/orderHistory.php")
       .then((res) => {
         return dResJSON(res);
       })
@@ -624,8 +623,7 @@ app.controller("orderHistoryCtrl", function () {
                     <div
                     class="col-4 d-flex flex-column justify-content-center align-items-end px-2"
                     >
-                    <p class="text-primary">₹ ${items.p_price}</p>
-                    <button class="btn btn-primary" onclick='addToCart(["${items.p_name}","${items.p_img}","${items.p_price}"])'>Add</button>
+                    <button class="btn btn-primary" onclick='reDirect("#!/prod/id:${items.p_name}")'>Open</button>
                     </div>
                 </div>
                 `;
