@@ -189,3 +189,9 @@
   padding: 0.8rem 1.5rem !important;
   height: 50px;
 }
+#acd .mb-0 .text-secondary{
+  text-transform: capitalize;
+}
+.category-holder .image-holder .tWrap1{
+  text-transform: capitalize;
+}
