@@ -458,7 +458,7 @@ app.controller("cartCtrl", function () {
           theoutput += `
                 <div class="row py-2 bg-white">
                     <div class="col-3 px-2">
-                    <img class="img-fluid" src="assets/img/product-image.png" />
+                    <img class="img-fluid" src="${urlServe + urlServeGST + items.pimg}" />
                     </div>
                     <div class="col-3 px-1 d-flex flex-column justify-content-center">
                         <p class="text-muted font-weight-bold mb-0 tWrap2">${items.pname}</p>
