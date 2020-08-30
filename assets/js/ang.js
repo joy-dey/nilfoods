@@ -616,14 +616,16 @@ app.controller("orderHistoryCtrl", function () {
                     <div class="col-3 px-2">
                     <img class="img-fluid orHis" src="${items.p_img}" />
                     </div>
-                    <div class="col-5 px-1">
+                    <div class="col-5 px-1 d-flex flex-column justify-content-center">
                     <p class="text-muted font-weight-bold mb-0 small">${items.p_name}</p>
                     <span class="text-secondary small">${items.p_desc}</span>
                     </div>
                     <div
                     class="col-4 d-flex flex-column justify-content-center align-items-end px-2"
                     >
-                    <button class="btn btn-primary" onclick='reDirect("#!/prod/id:${items.p_name}")'>Open</button>
+                    <button class="btn btn-primary btn-sm" onclick='reDirect("#!/prod/id:${items.p_name}")'>
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
                     </div>
                 </div>
                 `;
